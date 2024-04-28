@@ -1,4 +1,4 @@
-#cameraVid {
+#cameraVid, #canvas {
     width: 50vw;
     height: 50vh;
     transform: rotateY(180deg);
