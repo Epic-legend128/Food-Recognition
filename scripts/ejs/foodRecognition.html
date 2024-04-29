@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../css/common.css" type="text/css">
     <link rel="stylesheet" href="../css/foodRecognition.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+    <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
   </head>
   <body>
     <h1>Food recognition page</h1>
@@ -15,7 +19,9 @@
     <button onClick="openCamera()">Turn on camera</button>
     <button onClick="closeCamera()">Turn off camera</button>
     <button id="analyze-btn" onClick="takePic()"> Analyze image </button>
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHB2LmJDE8mRo5vCggGcP-G5Jkov0nOYt700GGxzzQg&s">
     <canvas id="canvas"></canvas>
+    
     <script src="../js/foodRecognition.js"></script>
   </body>
 </html>

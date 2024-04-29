@@ -1,7 +1,10 @@
-#cameraVid, #canvas {
+#cameraVid, #canvas, #image {
     width: 50vw;
     height: 50vh;
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
+}
+#image {
+    transform: scale(0.8, 1.1);
 }
