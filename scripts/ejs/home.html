@@ -9,7 +9,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
   </head>
   <body>
-    <h1>Homepage</h1>
+    <header style="background-color: #333; color: #fff; padding: 20px; text-align: center;">
+      <h1>Welcome to our Homepage</h1>
+    </header>
+    <section style="display: flex; justify-content: center;">
+      <video controls style="max-width: 800px;">
+        <source src="movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+    <nav style="background-color: #333; color: #fff; padding: 20px; text-align: center;">
+      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 1</a>
+      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 2</a>
+      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 3</a>
+    </nav>
     <button onClick="isWorking()">Click</button>
 	  <script src="../js/script.js"></script>
   </body>
