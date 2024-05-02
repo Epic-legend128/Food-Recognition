@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="../css/home.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
-  </head>
-  <body>
-    <header style="background-color: #333; color: #fff; padding: 20px; text-align: center;">
-      <h1>Welcome to our Homepage</h1>
-    </header>
-    <section style="display: flex; justify-content: center;">
-      <video controls style="max-width: 800px;">
-        <source src="movie.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </section>
-    <nav style="background-color: #333; color: #fff; padding: 20px; text-align: center;">
-      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 1</a>
-      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 2</a>
-      <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">Link 3</a>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="../css/home.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo">
+      <img src="landing-H-FARM-logo.png" width="60px">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
-    <button onClick="isWorking()">Click</button>
-	  <script src="../js/script.js"></script>
-  </body>
+  </header>
+  <button onClick="isWorking()">Click</button>
+  <script src="../js/script.js"></script>
+
+  <script>
+
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+      if (scroll > 200) {
+        $('header').addClass('visible').removeClass('hidden');
+      } else {
+        $('header').addClass('hidden').removeClass('visible');
+      }
+    });
+  </script>
+</body>
+
 </html>
