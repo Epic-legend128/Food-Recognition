@@ -12,6 +12,8 @@ $video.attr({
     "muted": ""
 });
 
+let model, webcam, labelContainer, maxPredictions;
+
 const facingMode = 'user';
 const constraints = {
     audio: false,
@@ -19,6 +21,8 @@ const constraints = {
         facingMode: facingMode
     }
 };
+
+const URL = "urlForData";
 
 async function openCamera() {
     navigator.mediaDevices.getUserMedia(constraints).then(stream => {
@@ -50,12 +54,22 @@ function takePic() {
     analyze(imgDataUrl);
 }
 
-function analyze(image) {
-    const img = document.getElementById('image');
-    console.log(img);
-    cocoSsd.load().then(model => {
-        model.detect(img).then(predictions => {
-            console.log('Predictions: ', predictions);
-        });
-    });
+async function analyze(image) {
+    const prediction = await model.predict(webcam.canvas);
+    console.log(prediction);
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
 }
+
+async function init() {
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+}
+
+init();
