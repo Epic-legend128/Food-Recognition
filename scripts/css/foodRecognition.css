@@ -1,5 +1,5 @@
 #cameraVid, #canvas, #image {
-    width: 100%; /* changed from 50vw to 100% */
+    width:  50%; /* changed from 50vw to 100% */
     height: 50vh;
     transform: rotateY(180deg)!important;
     -webkit-transform:rotateY(180deg)!important;
@@ -25,10 +25,10 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    position: fixed; /* changed from sticky to fixed */
+    position: sticky; /* changed from sticky to fixed */
     top: 0;
     left: 0; /* added to fix the menu to the left */
-    width: 100%; /* added to make the menu full width */
+    width: 100%; 
 }
 
 li {
