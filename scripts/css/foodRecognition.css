@@ -5,6 +5,14 @@
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
 }
+
 #image {
     transform: scale(0.8, 1.1);
+}
+
+@media only screen and (max-width: 600px) {
+    #cameraVid, #canvas, #image {
+        width: 100%;
+        height: 50vh;
+    }
 }
