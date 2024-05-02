@@ -1,5 +1,6 @@
 $("#analyze-btn").hide();
 $("#canvas").hide();
+$("#cameraVid").hide();
 let $img = $("#image");
 $img.hide();
 
@@ -20,13 +21,17 @@ const constraints = {
 };
 
 async function openCamera() {
-    let videoStream = await navigator.mediaDevices.getUserMedia(constraints);
-    $video[0].srcObject = videoStream;
+    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+        videoStream = stream;
+        $video[0].srcObject = videoStream;
+    });
     $("#analyze-btn").show();
+    $("#cameraVid").show();
 }
 
 function closeCamera() {
     $("#analyze-btn").hide();
+    $("#cameraVid").hide();
     videoStream.getTracks().forEach(function(track) {
         track.stop();
     });
