@@ -25,12 +25,12 @@ const constraints = {
 const URL = "urlForData";
 
 async function openCamera() {
+    $("#analyze-btn").show();
+    $("#cameraVid").show();
     navigator.mediaDevices.getUserMedia(constraints).then(stream => {
         videoStream = stream;
         $video[0].srcObject = videoStream;
     });
-    $("#analyze-btn").show();
-    $("#cameraVid").show();
 }
 
 function closeCamera() {

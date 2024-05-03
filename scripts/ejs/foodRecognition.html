@@ -14,19 +14,19 @@
   </head>
   <body>
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">Home</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#contact">Contact</a></li>
       <li style="float:right"><a class="active" href="#about">About</a></li>
     </ul>
     <h1>Food recognition page</h1>
-    <video id="cameraVid"></video>
+    <video id="cameraVid" class="same-sizes"></video>
     
     <button onClick="openCamera()">Turn on camera</button>
     <button onClick="closeCamera()">Turn off camera</button>
     <button id="analyze-btn" onClick="takePic()"> Analyze image </button>
-    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHB2LmJDE8mRo5vCggGcP-G5Jkov0nOYt700GGxzzQg&s">
-    <canvas id="canvas"></canvas>
+    <img class="same-sizes" id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHB2LmJDE8mRo5vCggGcP-G5Jkov0nOYt700GGxzzQg&s">
+    <canvas id="canvas" class="same-sizes"></canvas>
     
     <script src="../js/foodRecognition.js"></script>
   </body>

@@ -1,6 +1,13 @@
-#cameraVid, #canvas, #image {
-    width:  50%; /* changed from 50vw to 100% */
-    height: 50vh;
+* {
+    --scale-x: 0.75;
+    --scale-y: 1.1;
+    --size-w: 50vw;
+    --size-h: 50vh;
+}
+
+.same-sizes {
+    width:  var(--size-w);
+    height: var(--size-h);
     transform: rotateY(180deg)!important;
     -webkit-transform:rotateY(180deg)!important;
     -moz-transform:rotateY(180deg)!important;
@@ -9,7 +16,9 @@
 }
 
 #image {
-    transform: scale(0.8, 1.1);
+    transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
+    -webkit-transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
+    -moz-transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
 }
 
 @media only screen and (max-width: 600px) {
