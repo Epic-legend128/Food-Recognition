@@ -3,6 +3,7 @@ $("#canvas").hide();
 $("#cameraVid").hide();
 let $img = $("#image");
 $img.hide();
+let canvas = $('#canvas')[0];
 
 let videoStream;
 let $video = $("#cameraVid");
@@ -22,7 +23,7 @@ const constraints = {
     }
 };
 
-const URL = "urlForData";
+const URL = "<teachable-url>";
 
 async function openCamera() {
     $("#analyze-btn").show();
@@ -42,7 +43,6 @@ function closeCamera() {
 }
 
 function takePic() {
-    let canvas = $('#canvas')[0];
     canvas.width = $video[0].videoWidth;
     canvas.height = $video[0].videoHeight;
     let ctx = canvas.getContext('2d');
@@ -55,12 +55,11 @@ function takePic() {
 }
 
 async function analyze(image) {
-    const prediction = await model.predict(webcam.canvas);
+    const prediction = await model.predict(canvas);
     console.log(prediction);
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
     }
 }
 
