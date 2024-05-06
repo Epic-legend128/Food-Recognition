@@ -12,19 +12,45 @@
 
 <body>
   <header>
-    <a href="#" class="logo">
-      <img src="landing-H-FARM-logo.png" width="60px">
-    </a>
+    <a href="home.html" class="logo">
+      <img src="landing-H-FARM-logo.png" width="60px"></a>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="foodRecognition.html">Food Recognition</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <script src="../js/home.js"></script>
+
+  <video width="100%" height="auto" controls loop autoplay>
+    <source src="HEader-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button onClick="isWorking()">Click</button>
+  <script src="../js/script.js"></script>
+  <footer>
+    <p>&copy; 2023 Food Waste App</p>
+  </footer>
+
+  <script>
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+      if (scroll > 200) {
+        $('header').addClass('visible').removeClass('hidden');
+      } else {
+        $('header').addClass('hidden').removeClass('visible');
+      }
+    });
+
+    function theme_setup() {
+      add_theme_support('custom-header', array(
+        'video' = true,
+      ));
+    }
+    add_action('after_setup_theme', 'theme_setup');
+  </script>
 </body>
 
 </html>
