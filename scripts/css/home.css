@@ -6,49 +6,71 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 0px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
 }
-  
+
 header:hover {
 	background-color: #ffffff;
 }
-  
+
 .logo {
 	height: 50px;
 	display: flex;
 	align-items: center;
 }
-  
+
 .logo:hover {
 	opacity: 0.8;
 }
-  
+
+nav {
+	position: relative;
+}
+
 nav ul {
 	list-style-type: none;
 	display: flex;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
-  
+
 nav ul li {
 	margin-right: 20px;
+	position: relative;
 }
-  
+
 nav ul li:last-child {
 	margin-right: 0;
 }
-  
+
 nav ul li a {
 	color: #333;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
-  
+
 nav ul li a:hover {
 	color: #f00;
 }
 
+nav ul li ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+}
+
+nav ul li:hover ul {
+	display: block;
+}
 
 video {
-padding: 0 0px;
-margin: 0;
+	padding: 0 0px;
+	margin: 0;
 }
