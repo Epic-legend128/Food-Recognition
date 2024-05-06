@@ -28,7 +28,7 @@
     }
 }
 
-ul {
+.header {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -37,19 +37,15 @@ ul {
     position: sticky; /* changed from sticky to fixed */
     top: 0;
     left: 0; /* added to fix the menu to the left */
-<<<<<<< Updated upstream
     width: 100%;
-=======
-    width: 100%; 
-    z-index: 100;
->>>>>>> Stashed changes
+    z-index: 1;
 }
 
-li {
+.header li {
     float: left;
 }
 
-li a {
+.header li a {
     display: block;
     color: rgb(0, 0, 0);
     text-align: center;
@@ -57,8 +53,9 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+.header li a:hover {
     color: #f76161;
+
 }
 
 .active {
