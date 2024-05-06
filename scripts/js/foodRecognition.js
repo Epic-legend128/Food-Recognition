@@ -57,9 +57,11 @@ function takePic() {
 async function analyze(image) {
     const prediction = await model.predict(canvas);
     console.log(prediction);
+    let $results = $("#results");
+    $results.html("");
     for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        if (prediction[i].probability.toFixed(2) > 0.4) $("<li>"+prediction[i].className+"</li>").appendTo($results);
     }
 }
 
