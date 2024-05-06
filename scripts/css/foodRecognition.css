@@ -33,11 +33,16 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #ffffff;
     position: sticky; /* changed from sticky to fixed */
     top: 0;
     left: 0; /* added to fix the menu to the left */
+<<<<<<< Updated upstream
     width: 100%;
+=======
+    width: 100%; 
+    z-index: 100;
+>>>>>>> Stashed changes
 }
 
 li {
@@ -46,14 +51,14 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #111;
+    color: #f76161;
 }
 
 .active {
