@@ -20,11 +20,11 @@ header {
 }
 
 header:hover {
-	background-color: #ffffff;
+	background-color: black;
 }
 
 header:hover>nav ul {
-	--hover-color: black;
+	--hover-color: white;
 
 	li a {
 		color: var(--hover-color);
@@ -37,13 +37,13 @@ header:hover>nav ul {
 	display: flex;
 	margin-left: 20px;
 	padding: 0 20px;
-	background-image: url('../../media/landing-H-FARM-logo-white.png');
+	background-image: url('../../media/landing-H-FARM-logo-black.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
 header:hover>.logo {
-	background-image: url('../../media/landing-H-FARM-logo.png');
+	background-image: url('../../media/landing-H-FARM-logo-white.png');
 	transition: background-image 0.3 ease
 
 }
@@ -75,7 +75,7 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-	color: white;
+	color: black;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
