@@ -28,36 +28,119 @@
     }
 }
 
-.header {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffffff;
-    position: sticky; /* changed from sticky to fixed */
-    top: 0;
-    left: 0; /* added to fix the menu to the left */
-    width: 100%;
-    z-index: 1;
+body{
+	display: block;
+	margin: 0;
+	background-color: rgb(190, 190, 190);
 }
 
-.header li {
-    float: left;
+header {
+	background-color: transparent;
+	transition: background-color 0.4s ease, padding 0.4s ease;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 0px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
 }
 
-.header li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+header:hover {
+	background-color: black;
 }
 
-.header li a:hover {
-    color: #f76161;
+header:hover>nav ul {
+	--hover-color: white;
+
+	li a {
+		color: var(--hover-color);
+	}
+}
+
+.logo {
+	height: 50px;
+	width: 50px;
+	display: flex;
+	margin-left: 20px;
+	padding: 0 20px;
+	background-image: url('../../media/landing-H-FARM-logo-black.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+header:hover>.logo {
+	background-image: url('../../media/landing-H-FARM-logo-white.png');
+	transition: background-image 0.3 ease
 
 }
 
-.active {
-    background-color: #4CAF50;
+.logo:hover {
+	opacity: 0.8;
 }
+
+nav {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	position: relative;
+}
+
+nav ul {
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+	padding: 0 20px;
+	overflow: hidden;
+}
+
+nav ul li {
+	margin-right: 20px;
+	position: relative;
+}
+
+nav ul li:last-child {
+	margin-right: 0;
+}
+
+nav ul li a {
+	color: black;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+	color: #f00;
+}
+
+nav ul li ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+}
+
+nav ul li:hover ul {
+	display: block;
+}
+
+video {
+	padding: 0;
+	margin: 0;
+}
+
+.header.scrolled {
+	background-color: black;
+  }
+  
+  .header.scrolled > nav ul li a {
+	color: white;
+  }
+  
+  .header.scrolled > .logo {
+	  background-image: url('../../media/landing-H-FARM-logo-white.png');
+	}
+	
+ 
