@@ -102,15 +102,15 @@ video {
 }
 
 .header.scrolled {
-	background-color: #ffffff;
+	background-color: black;
   }
   
   .header.scrolled > nav ul li a {
-	color: #000000;
+	color: white;
   }
   
   .header.scrolled > .logo {
-	  background-image: url('../../media/landing-H-FARM-logo.png');
+	  background-image: url('../../media/landing-H-FARM-logo-white.png');
 	}
 	
  
