@@ -15,13 +15,31 @@ header {
 
 header:hover {
 	background-color: #ffffff;
+
 }
 
-.logo {
+header:hover > nav ul {
+	--hover-color: black;
+	li a {
+	  color: var(--hover-color);
+	}
+  }
+
+
+
+  .logo {
 	height: 50px;
+	width: 50px; /* add width to match the image size */
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
+	background-image: url('landing-H-FARM-logo(white).png'); /* initial logo image */
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+header:hover.logo {
+	background-image: url('landing-H-FARM-logo.png'); /* hover logo image */
 }
 
 .logo:hover {
@@ -29,6 +47,7 @@ header:hover {
 }
 
 nav {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	position: relative;
 }
 
@@ -50,14 +69,14 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-	color: #333;
+	color: white;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-	color: #f00;
-}
+	color: var(#f00);
+  }
 
 nav ul li ul {
 	display: none;
