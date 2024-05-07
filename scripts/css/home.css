@@ -1,6 +1,6 @@
 header {
 	background-color: transparent;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.4s ease, padding 0.4s ease;
 	height: 80px;
 	display: flex;
 	justify-content: space-between;
@@ -15,31 +15,31 @@ header {
 
 header:hover {
 	background-color: #ffffff;
-
 }
 
-header:hover > nav ul {
+header:hover>nav ul {
 	--hover-color: black;
+
 	li a {
-	  color: var(--hover-color);
+		color: var(--hover-color);
 	}
-  }
+}
 
-
-
-  .logo {
+.logo {
 	height: 50px;
-	width: 50px; /* add width to match the image size */
+	width: 50px;
 	display: flex;
-	align-items: center;
+	margin: 0;
 	padding: 0 20px;
-	background-image: url('landing-H-FARM-logo(white).png'); /* initial logo image */
+	background-image: url('../../media/landing-H-FARM-logo-white.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
-header:hover.logo {
-	background-image: url('landing-H-FARM-logo.png'); /* hover logo image */
+header:hover>.logo {
+	background-image: url('../../media/landing-H-FARM-logo.png');
+	transition: background-image 0.3 ease
+
 }
 
 .logo:hover {
@@ -75,8 +75,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color: var(#f00);
-  }
+	color: #f00;
+}
 
 nav ul li ul {
 	display: none;
@@ -93,4 +93,17 @@ nav ul li:hover ul {
 video {
 	padding: 0 0px;
 	margin: 0;
+}
+
+.header.scrolled {
+  background-color: #ffffff;
+}
+
+.header.scrolled > nav ul li a {
+  color: #000000;
+}
+
+.header.scrolled > .logo {
+  background-image: url('../../media/landing-H-FARM-logo.png');
+  padding: 20 20px;
 }
