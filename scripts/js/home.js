@@ -16,3 +16,10 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+
+
+$(document).ready(function() {
+    setTimeout(function() {
+      $('.video-title').fadeOut();
+    }, 5000);
+  });

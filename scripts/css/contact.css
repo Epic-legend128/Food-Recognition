@@ -1,116 +1,210 @@
-body{
-	display: block;
-	margin: 0;
-	background-color: rgb(190, 190, 190);
+body {
+    display: block;
+    margin: 0;
+    background-color: rgb(190, 190, 190);
 }
 
 header {
-	background-color: transparent;
-	transition: background-color 0.4s ease, padding 0.4s ease;
-	height: 80px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 0px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
+    background-color: transparent;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 header:hover {
-	background-color: black;
+    background-color: black;
 }
 
 header:hover>nav ul {
-	--hover-color: white;
+    --hover-color: white;
 
-	li a {
-		color: var(--hover-color);
-	}
+    li a {
+        color: var(--hover-color);
+    }
 }
 
 .logo {
-	height: 50px;
-	width: 50px;
-	display: flex;
-	margin-left: 20px;
-	padding: 0 20px;
-	background-image: url('../../media/landing-H-FARM-logo-black.png');
-	background-size: contain;
-	background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    margin-left: 20px;
+    padding: 0 20px;
+    background-image: url('../../media/landing-H-FARM-logo-black.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 header:hover>.logo {
-	background-image: url('../../media/landing-H-FARM-logo-white.png');
-	transition: background-image 0.3 ease
-
+    background-image: url('../../media/landing-H-FARM-logo-white.png');
+    transition: background-image 0.3 ease
 }
 
 .logo:hover {
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
 nav {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
 }
 
 nav ul {
-	list-style-type: none;
-	display: flex;
-	margin: 0;
-	padding: 0 20px;
-	overflow: hidden;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0 20px;
+    overflow: hidden;
 }
 
 nav ul li {
-	margin-right: 20px;
-	position: relative;
+    margin-right: 20px;
+    position: relative;
 }
 
 nav ul li:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 nav ul li a {
-	color: black;
-	text-decoration: none;
-	transition: color 0.3s ease;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-	color: #f00;
+    color: #f00;
 }
 
 nav ul li ul {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
 }
 
 nav ul li:hover ul {
-	display: block;
+    display: block;
 }
 
 video {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .header.scrolled {
-	background-color: black;
+    background-color: black;
+}
+
+.header.scrolled>nav ul li a {
+    color: white;
+}
+
+.header.scrolled>.logo {
+    background-image: url('../../media/landing-H-FARM-logo-white.png');
+}
+
+
+.video-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 36px;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.video-title h1 {
+    margin: 0;
+}
+
+
+.video-title {
+    animation: fade-in 10s forwards;
+    animation-delay: 4s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.video-title {
+    animation: fade-out 10s forwards;
+    animation-delay: 6s;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.video-title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 36px;
+	color: #fff;
+	background-color: rgb(0, 0, 0, 0.5);
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	z-index: 1; 
   }
   
-  .header.scrolled > nav ul li a {
-	color: white;
+  .video-title h1 {
+	margin: 0;
   }
   
-  .header.scrolled > .logo {
-	  background-image: url('../../media/landing-H-FARM-logo-white.png');
+
+  .video-title {
+	opacity: fade-in 0;
+	animation: fade-in 10s forwards;
+	animation-delay: 2s;
+  }
+  
+  @keyframes fade-in {
+	0% {
+	  opacity: 0;
 	}
-	
- 
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+  
+  .video-title {
+	animation: fade-out 10s forwards;
+	animation-delay: 7s;
+  }
+  
+  @keyframes fade-out {
+	0% {
+	  opacity: 1;
+	}
+	100% {
+	  opacity: 0;
+	}
+  }
