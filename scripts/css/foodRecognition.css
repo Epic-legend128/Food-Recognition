@@ -67,7 +67,7 @@ header:hover>nav ul {
 	display: flex;
 	margin-left: 20px;
 	padding: 0 20px;
-	background-image: url('../../media/landing-H-FARM-logo-black.png');
+	background-image: url('../../media/landing-H-FARM-logo-white.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -105,7 +105,7 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-	color: black;
+	color: white;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
