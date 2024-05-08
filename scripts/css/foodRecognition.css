@@ -36,7 +36,16 @@
 body {
     display: block;
     margin: 0;
-    background-color: rgb(190, 190, 190);
+    background-color:#F8F6EF;
+}
+
+h1{
+    font-weight: bold;
+    text-align: center;
+}
+p{
+    font-weight: 500;
+    text-align: center;
 }
 
 header {
@@ -55,11 +64,11 @@ header {
 }
 
 header:hover {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 
 header:hover>nav ul {
-    --hover-color: white;
+    --hover-color: rgb(0, 0, 0);
 
     li a {
         color: var(--hover-color);
@@ -78,7 +87,7 @@ header:hover>nav ul {
 }
 
 header:hover>.logo {
-    background-image: url('../../media/landing-H-FARM-logo-white.png');
+    background-image: url('../../media/landing-H-FARM-logo-black.png');
     transition: background-image 0.3 ease
 }
 
@@ -135,15 +144,16 @@ video {
 }
 
 .header.scrolled {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
+    
 }
 
 .header.scrolled>nav ul li a {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .header.scrolled>.logo {
-    background-image: url('../../media/landing-H-FARM-logo-white.png');
+    background-image: url('../../media/landing-H-FARM-logo-black.png');
 }
 
 .video-title {
