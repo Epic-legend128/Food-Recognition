@@ -75,9 +75,6 @@ async function init() {
 
 init();
 
-
-
-
 $(window).scroll(function () {
     var scroll = $(window).scrollTop();
     if (scroll > 200) {
@@ -86,21 +83,3 @@ $(window).scroll(function () {
         $('header').addClass('hidden').removeClass('visible');
     }
 });
-
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-
-
-$(document).ready(function() {
-    setTimeout(function() {
-      $('.video-title').fadeOut();
-    }, 5000);
-  });
