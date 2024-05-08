@@ -6,11 +6,9 @@ document.getElementById('analyzeButton').addEventListener('click', async () => {
     }
 
     try {
-        // Load the COCO-SSD model
         const model = await cocoSsd.load();
         console.log("COCO-SSD model loaded.");
 
-        // Read the uploaded image
         const image = new Image();
         const reader = new FileReader();
         reader.onload = function (event) {
@@ -21,16 +19,13 @@ document.getElementById('analyzeButton').addEventListener('click', async () => {
                 const canvas = document.getElementById('output');
                 const ctx = canvas.getContext('2d');
 
-                // Draw the image to the canvas
                 canvas.width = image.width;
                 canvas.height = image.height;
                 ctx.drawImage(image, 0, 0);
 
-                // Run the model on the image
                 const predictions = await model.detect(image);
                 console.log("Object detection completed.");
 
-                // Annotate the detected objects
                 predictions.forEach((prediction) => {
                     ctx.beginPath();
                     ctx.rect(...prediction.bbox);
