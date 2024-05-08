@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <style>
+        #output {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Object Detection Web App</h1>
+    <input type="file" id="fileInput" accept="image/*" />
+    <button id="analyzeButton">Analyze Photo</button>
+    <br /><br />
+    <canvas id="output" width="600" height="400"></canvas>
+    <script src="analyse.js"></script>
+</body>
+</html>
