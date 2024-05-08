@@ -83,3 +83,12 @@ $(window).scroll(function () {
         $('header').addClass('hidden').removeClass('visible');
     }
 });
+const observer = new IntersectionObserver((entries) =>{
+    entries.forEach((entry)=>{
+        if (entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+const paraelements = document.querySelectorAll('.para');
+paraelements.forEach((el)=> observer.observe (el))
