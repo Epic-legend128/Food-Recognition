@@ -32,7 +32,18 @@
         height: 50vh;
     }
 }
+section{
+    display: grid;
+    place-items: center;
+}
 
+.para {
+opacity: 0;
+transition: all 5s;
+}
+.show{
+    opacity: 1;
+}
 body {
     display: block;
     margin: 0;
