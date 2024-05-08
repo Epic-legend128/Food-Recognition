@@ -34,15 +34,21 @@
 }
 section{
     display: grid;
+    height: 10vh;
+    padding: 0 clamp(4rem, 12vw, 20rem);
     place-items: center;
 }
 
 .para {
 opacity: 0;
-transition: all 5s;
+filter: blur(5px);
+transition: all 1s;
+transform: translateY(150%);
 }
 .show{
+    filter: blur(0px);
     opacity: 1;
+    transform: translateY(0);
 }
 body {
     display: block;
@@ -55,6 +61,7 @@ h1{
     text-align: center;
 }
 p{
+    font-size: 80%;
     font-weight: 500;
     text-align: center;
 }
@@ -169,11 +176,11 @@ video {
 
 .video-title {
 	position: absolute;
-	top: 50%;
+	top: 15%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	font-size: 36px;
+	font-size: 100%;
 	color: #fff;
 	background-color: rgb(0, 0, 0, 0.5);
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
