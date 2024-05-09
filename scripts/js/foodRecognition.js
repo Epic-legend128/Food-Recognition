@@ -92,4 +92,4 @@ const observer = new IntersectionObserver((entries) =>{
     });
 });
 const paraelements = document.querySelectorAll('.para');
-paraelements.forEach((el)=> observer.observe (el))
+paraelements.forEach((el)=> observer.observe (el));
