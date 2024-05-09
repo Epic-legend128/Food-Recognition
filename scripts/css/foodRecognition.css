@@ -18,12 +18,13 @@
 }
 
 #image {
-    transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
-    -webkit-transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
-    -moz-transform: rotateY(180deg) scale(var(--scale-x), var(--scale-y)) !important;
+    position: relative;
+    width: calc(var(--size-w) - 12vw);
+    height: var(--size-h);
+
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 100%) {
 
     #cameraVid,
     #canvas,
