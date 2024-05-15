@@ -23,6 +23,7 @@ const constraints = {
     }
 };
 
+const KEY = "keyForTheLocalSessionForThePredictionsMadeByTheModel";
 const URL = "<teachable-url>";
 
 async function openCamera() {
@@ -51,19 +52,15 @@ function takePic() {
     $img[0].src = imgDataUrl;
 
     $img.show();
-    return analyze(imgDataUrl);
+    analyze(imgDataUrl);
 }
 
 async function analyze(image) {
     const prediction = await model.predict(canvas);
-    console.log(prediction);
-    let $results = $("#results");
-    $results.html("");
-    for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        if (prediction[i].probability.toFixed(2) > 0.4) $("<li>"+prediction[i].className+"</li>").appendTo($results);
-    }
-    return prediction;
+    let d = JSON.stringify(prediction);
+    $("#img-data").val(d)
+    window.sessionStorage[KEY] = d;
+    $("#form")[0].requestSubmit();
 }
 
 async function init() {
