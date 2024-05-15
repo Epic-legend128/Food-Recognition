@@ -51,7 +51,7 @@ function takePic() {
     $img[0].src = imgDataUrl;
 
     $img.show();
-    analyze(imgDataUrl);
+    return analyze(imgDataUrl);
 }
 
 async function analyze(image) {
@@ -63,6 +63,7 @@ async function analyze(image) {
         const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         if (prediction[i].probability.toFixed(2) > 0.4) $("<li>"+prediction[i].className+"</li>").appendTo($results);
     }
+    return prediction;
 }
 
 async function init() {
