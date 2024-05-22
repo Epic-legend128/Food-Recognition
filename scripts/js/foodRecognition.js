@@ -24,7 +24,7 @@ const constraints = {
 };
 
 const KEY = "keyForTheLocalSessionForThePredictionsMadeByTheModel";
-const URL = "<teachable-url>";
+const URL = "https://teachablemachine.withgoogle.com/models/ctWVwXRh_/";
 
 async function openCamera() {
     $("#analyze-btn").show();
