@@ -201,11 +201,31 @@ video {
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
+	transition: all ease-in-out 300ms;
 }
 
 .section button:hover {
 	background-color: white;
-	color: red;
+	color: darkred;
+}
+
+.section:nth-of-type(even) {
+	background-color: darkred;
+	color: whitesmoke;
+}
+
+.section:nth-of-type(even) h2 {
+	color: whitesmoke;
+}
+
+.section:nth-of-type(even) button {
+	background-color: whitesmoke;
+	color: darkred;
+}
+
+.section:nth-of-type(even) button:hover {
+	background-color: rgb(169, 32, 32);
+	color: whitesmoke;
 }
 
 p {
