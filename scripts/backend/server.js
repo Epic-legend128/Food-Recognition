@@ -41,7 +41,7 @@ app.listen(PORT, _ => console.log("Listening on port: " + PORT));
 
 
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore/lite";
+import { getFirestore, updateDoc } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -59,6 +59,7 @@ const db = getFirestore(dbApp);
 
 app.post("/image", express.urlencoded(), async (req, res) => {
     let data = JSON.parse(req.body.img_data);
+
     res.render("ejs/foodRecognition.ejs", {
         hasData: true
     });

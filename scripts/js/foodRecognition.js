@@ -73,14 +73,6 @@ async function init() {
 
 init();
 
-$(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    if (scroll > 200) {
-        $('header').addClass('visible').removeClass('hidden');
-    } else {
-        $('header').addClass('hidden').removeClass('visible');
-    }
-});
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach((entry)=>{
         if (entry.isIntersecting){
