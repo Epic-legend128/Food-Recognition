@@ -1,0 +1,30 @@
+header:hover {
+	background-color: white !important;
+}
+
+nav:hover {
+	color: black !important
+}
+
+header:hover>nav ul li a {
+	color: black !important;
+}
+
+nav ul li a {
+	color: white !important;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.header.scrolled {
+	background-color: white !important;
+}
+
+.header.scrolled>nav ul li a {
+	color: black !important;
+}
+
+header:hover>.logo {
+	background-image: url('../media/landing-H-FARM-logo.png') !important;
+	transition: background-image 0.3 ease !important;
+}
