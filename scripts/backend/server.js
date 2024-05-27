@@ -2,7 +2,7 @@ import express from 'express';
 import * as path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-
+import "dotenv/config.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -41,7 +41,7 @@ app.listen(PORT, _ => console.log("Listening on port: " + PORT));
 
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, updateDoc } from "firebase/firestore/lite";
+import { getFirestore, updateDoc, getDoc, doc } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -57,9 +57,35 @@ const dbApp = initializeApp(firebaseConfig);
 
 const db = getFirestore(dbApp);
 
+const COLLECTION_NAME = "Food";
+
 app.post("/image", express.urlencoded(), async (req, res) => {
     let data = JSON.parse(req.body.img_data);
+    let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
+    let d = await getDoc(docRef);
+    d = d.data();
+    let adjustedData = [];
+    data.forEach(pair => {
+        let key = pair.className;
+        key = key+"_25%"; // delete later
+        let num = key.match("_.*")[0].substring(1);
+        let actualKey = key.match("^.*_")[0];
+        actualKey = actualKey.substring(0, actualKey.length - 1);
+        if (d.hasOwnProperty(actualKey)) d[actualKey] += parseInt(num);
+        else d[actualKey] = parseInt(num);
 
+        adjustedData.push(actualKey);
+    });
+    await updateDoc(docRef, d);
+
+    docRef = await doc(db, COLLECTION_NAME, process.env.CASE_FOOD);
+    d = await getDoc(docRef);
+    d = d.data();
+    let len = Object.keys(d).length;
+    let newData = {
+        [((len+1).toString())]: adjustedData
+    };
+    await updateDoc(docRef, newData);
     res.render("ejs/foodRecognition.ejs", {
         hasData: true
     });
