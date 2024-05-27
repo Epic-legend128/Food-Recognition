@@ -28,3 +28,7 @@ header:hover>.logo {
 	background-image: url('../media/landing-H-FARM-logo.png') !important;
 	transition: background-image 0.3 ease !important;
 }
+
+.header.scrolled>.logo {
+    background-image: url('../../media/landing-H-FARM-logo.png');
+}
