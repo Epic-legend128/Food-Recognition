@@ -2,9 +2,9 @@
 A website that recognises wasted food on your food tray through your camera
 
 ## Contents
-1. [Prerequisites](prerequisites)
-   - [Setting up Environment Variables](setting-up-the-environment-variables)
-3. [Opening the page](opening-the-page)
+1. [Prerequisites](#prerequisites)
+   - [Setting up Environment Variables](#setting-up-the-environment-variables)
+3. [Opening the page](#opening-the-page)
 
 ## Prerequisites
 To be able to open the page to properly use it, you first need to set up all of the environment variables. Normally you would also need to donwnload all of the node packages using npm but they are already included.
