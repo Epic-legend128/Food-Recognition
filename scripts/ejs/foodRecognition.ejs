@@ -15,7 +15,7 @@
   </head>
   <body>
 
-    <header class="header">
+  <header class="header">
       <a href="home.ejs" class="logo">
           <img></a>
       <nav>
@@ -31,16 +31,16 @@
   </div>
 
 
-<video width="100%" height="auto" autoplay loop muted>
-    <source src="../media/FoodRecognition-Header-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+  <video width="100%" height="auto" autoplay loop muted>
+      <source src="../media/FoodRecognition-Header-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
 
 
 
 
-<br><br><br><br>
-<section class="para">
+  <br><br><br><br>
+  <section class="para">
     <h1>How it Works</h1>
     <p>With the use of recognition based AI softwares and database, our food recognition tool is able to determine how much food waste is present in the image based on factors set by our developers</p>
   </section>
@@ -48,30 +48,30 @@
   <section>
     <video id="cameraVid" class="same-sizes"></video>
     
-    <button onClick="openCamera()">Turn on camera</button>
-    <button onClick="closeCamera()">Turn off camera</button>
-    <button id="analyze-btn" onClick="takePic();"> Analyze image </button>
+    <button class="cam-btns" onClick="openCamera()">Turn on camera</button>
+    <button class="cam-btns" onClick="closeCamera()">Turn off camera</button>
+    <button class="cam-btns" id="analyze-btn" onClick="takePic();"> Analyze image </button>
     <form id="form" action="/image" method="POST">
       <input type="hidden" id="img-data" name="img_data">
     </form>
     <img class="same-sizes" id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHB2LmJDE8mRo5vCggGcP-G5Jkov0nOYt700GGxzzQg&s">
     <canvas id="canvas" class="same-sizes"></canvas>
   </section>
-    <section>
-      <div id="results">
-      </div>
-    </section>
-    
-    <script src="../js/foodRecognition.js" type="text/javascript"></script>
-    <script src="../js/common.js" type="text/javascript"></script>
-    <% if (hasData) { %>
-      <script>
-        //adjust in future for future model
-        let d = JSON.parse(window.sessionStorage[KEY]);
-        d.forEach(x => {
-          if (x.probability > 0.4) $("<span>"+x.className+"</span><br>").appendTo($("#results"));
-        });
-      </script>
-    <% } %>
-  </body>
+  <section>
+    <div id="results">
+    </div>
+  </section>
+      
+  <script src="../js/foodRecognition.js" type="text/javascript"></script>
+  <script src="../js/common.js" type="text/javascript"></script>
+  <% if (hasData) { %>
+    <script>
+      //adjust in future for future model
+      let d = JSON.parse(window.sessionStorage[KEY]);
+      d.forEach(x => {
+        if (x.probability > 0.4) $("<span>"+x.className+"</span><br>").appendTo($("#results"));
+      });
+    </script>
+  <% } %>
+</body>
 </html>
