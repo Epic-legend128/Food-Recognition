@@ -2,7 +2,7 @@
 A website that recognises wasted food on your food tray through your camera
 
 ## Contents
-1.[Purpose](#purpose)
+1. [Purpose](#purpose)
 2. [Prerequisites](#prerequisites)
    - [Setting up Environment Variables](#setting-up-environment-variables)
 3. [Opening the page](#opening-the-page)
