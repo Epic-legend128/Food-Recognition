@@ -39,6 +39,15 @@ section {
     place-items: center;
 }
 
+#section{
+  grid-template-columns: 1fr 1fr;
+}
+
+#cameraVid {
+  position: relative;
+  left: -11%;
+}
+
 .para {
   opacity: 0;
   filter: blur(5px);
@@ -66,6 +75,14 @@ p {
   font-size: 80%;
   font-weight: 500;
   text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#results{
+  font-size: 300%;
 }
 
 .video-title {
@@ -101,6 +118,24 @@ p {
 	}
 }
   
+  button {
+    background-color: darkred; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color:rgb(169, 32, 32); /* Green */
+    color: rgb(255, 255, 255);
+  }
   
 .video-title {
   animation: fade-out 10s forwards;
@@ -121,7 +156,7 @@ p {
     font-size: 2.5rem !important;
   }
 
-  .cam-btns {
+  .button {
     position: relative;
     top: 400%;
   }
