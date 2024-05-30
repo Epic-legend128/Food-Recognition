@@ -1,11 +1,12 @@
 # Food-Recognition
-A website that recognises wasted food on your food tray through your camera
+A website that recognises wasted food on your food tray through your camera.
 
 ## Contents
 1. [Purpose](#purpose)
-2. [Prerequisites](#prerequisites)
+2. [Tools Used](#tools-used)
+3. [Prerequisites](#prerequisites)
    - [Setting up Environment Variables](#setting-up-environment-variables)
-3. [Opening the page](#opening-the-page)
+4. [Opening the page](#opening-the-page)
 
 ## Purpose
 The purpose of this website is to track the amount of food wasted at the canteen of a place. In our case, it is the school canteen that we want to track the food waste of. The way this works is simple. First, you navigate to the "Food Recognition" page of the site, then click the "open camera" button and then analyze the image shown. The page will refresh and it will show you the foods you wasted from the tray. Meanwhile, this data is sent to a database in Firebase Firestore which stores all of the data in different categories so that they can be analysed better. The dataset for training the model was collected by our team and then trained using Pytorch.
@@ -55,3 +56,4 @@ To open the webpage you need to run the server.js file using node and then visit
 $ cd scripts/backend
 $ node server.js
 ```
+You can also use nodemon to run the page if you are planning on tinkering with the code.
