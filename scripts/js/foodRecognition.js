@@ -33,6 +33,7 @@ async function openCamera() {
         videoStream = stream;
         $video[0].srcObject = videoStream;
     });
+    $(".button").attr("class", "button-2");
 }
 
 function closeCamera() {
@@ -41,6 +42,7 @@ function closeCamera() {
     videoStream.getTracks().forEach(function(track) {
         track.stop();
     });
+    $(".button-2").attr("class", "button");
 }
 
 function takePic() {
