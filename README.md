@@ -8,7 +8,27 @@ A website that recognises wasted food on your food tray through your camera
 3. [Opening the page](#opening-the-page)
 
 ## Purpose
-The purpose of this website is to track the amount of food wasted at the canteen of a place. In our case, it is the school canteen that we want to track the food waste of. The way this works is simple. First, you navigate to the "Food Recognition" page of the site, then click the "open camera" button and then analyze the image shown. The page will refresh and it will show you the foods you wasted from the tray. Meanwhile, this data is sent to a database in Firebase Firestore which stores all of the data in different categories so that they can be analysed better. The dataset for training the model was collected by our team and then trained using Pytorch. Other tools we used were Javascript, Node.js, EJS, CSS and jQuery for the webpage, whereas for the image model, we used Python and more specifically Pytorch and also at one point we were using the teachable machine of Google.
+The purpose of this website is to track the amount of food wasted at the canteen of a place. In our case, it is the school canteen that we want to track the food waste of. The way this works is simple. First, you navigate to the "Food Recognition" page of the site, then click the "open camera" button and then analyze the image shown. The page will refresh and it will show you the foods you wasted from the tray. Meanwhile, this data is sent to a database in Firebase Firestore which stores all of the data in different categories so that they can be analysed better. The dataset for training the model was collected by our team and then trained using Pytorch.
+
+## Tools Used
+We used multiple tools and programming languages for the creation of this project.
+For the webpage, we made use of:
+- Javascript
+- Node.js
+- EJS
+- CSS
+- jQuery
+- HTML(Started off with HTML and then switched to EJS)
+
+For the training of the model we used Python and more specifically Pytorch. The dataset of images was collected by our team and they were annotated using [labelImg](https://github.com/HumanSignal/labelImg#). <br>
+From Node we utilised the following packages:
+- express
+- ejs
+- dotenv
+- firebase
+- path
+- url
+
 
 ## Prerequisites
 To be able to open the page to properly use it, you first need to set up all of the environment variables. Normally you would also need to download all of the node packages using npm but they are already included.
