@@ -1,3 +1,12 @@
-h1{
+body {
+    background-repeat: none;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(35deg, darkred, red) !important;
+}
+
+h1 {
     text-align: center;
+    position: relative;
+    top: 15vh !important;
 }
