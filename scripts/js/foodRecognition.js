@@ -24,7 +24,6 @@ const constraints = {
 };
 
 const KEY = "keyForTheLocalSessionForThePredictionsMadeByTheModel";
-const URL = "https://teachablemachine.withgoogle.com/models/ctWVwXRh_/";
 
 async function openCamera() {
     $("#analyze-btn").show();
@@ -46,34 +45,19 @@ function closeCamera() {
 }
 
 function takePic() {
-    canvas.width = $video[0].videoWidth;
-    canvas.height = $video[0].videoHeight;
+    canvas.width = 423;
+    canvas.height = 284;
     let ctx = canvas.getContext('2d');
     ctx.drawImage($video[0], 0, 0, canvas.width, canvas.height);
-    let imgDataUrl = canvas.toDataURL("image/jpeg");
-    $img[0].src = imgDataUrl;
 
     $img.show();
-    analyze(imgDataUrl);
+    analyze(ctx.getImageData(0, 0, canvas.width, canvas.height));
 }
 
-async function analyze(image) {
-    const prediction = await model.predict(canvas);
-    let d = JSON.stringify(prediction);
-    $("#img-data").val(d)
-    window.sessionStorage[KEY] = d;
+async function analyze(canvasData) {
+    $("#img-data").val(JSON.stringify(canvasData.data));
     $("#form")[0].requestSubmit();
 }
-
-async function init() {
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";
-
-    model = await tmImage.load(modelURL, metadataURL);
-    maxPredictions = model.getTotalClasses();
-}
-
-init();
 
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach((entry)=>{

@@ -1,71 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../css/home.css" type="text/css">
+    <link rel="stylesheet" href="../css/common.css" type="text/css">
+    <link rel="stylesheet" href="/../css/oppositeHeader.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homepage</title>
-  <link rel="stylesheet" href="../css/home.css" type="text/css">
-  <link rel="stylesheet" href="../css/common.css" type="text/css">
-  <link rel="stylesheet" href="/../css/oppositeHeader.css" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
-</head>
-
-<body>
-  <header class="header">
-    <a href="home.ejs" class="logo">
-      <img></a>
-    <nav>
-      <ul>
-        <li><a href="aboutUs.ejs">About Us</a></li>
-        <li><a href="foodRecognition.ejs">Food Recognition</a></li>
-        <li><a href="contact.ejs">Contact</a></li>
-        <li><a href="demo.ejs">Demo</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-  <div class="video-title">
-    <h1 id="page-title">Homepage</h1>
-  </div>
+  <body>
+    <header class="header">
+      <a href="home.ejs" class="logo">
+        <img></a>
+      <nav>
+        <ul>
+          <li><a href="aboutUs.ejs">About Us</a></li>
+          <li><a href="foodRecognition.ejs">Food Recognition</a></li>
+          <li><a href="contact.ejs">Contact</a></li>
+          <li><a href="demo.ejs">Demo</a></li>
+        </ul>
+      </nav>
+    </header>
 
 
-  <video width="100%" height="auto" autoplay loop muted webkit-playesinline>
-    <source src="../../media/Homepage_Video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-
-  <section class="section-container">
-    <div class="section" id="section-1">
-        <h2>Food Recognition</h2>
-        <p>Cut waste, track eats! Try our AI food recognition software</p>
-        <a href="foodRecognition.ejs"><button>TRY IT OUT</button></a>
+    <div class="video-title">
+      <h1 id="page-title">Homepage</h1>
     </div>
-    <div class="section" id="section-2">
-        <h2>Contact Us</h2>
-        <p>We welcome you to contact us with any questions.</p>
-        <a href="contact.ejs"><button>CONTACT US</button></a>
-    </div>
-    <div class="section" id="demo">
-      <h2>Check out our demo!</h2>
-      <p>Try our food recognition software in action.</p>
-      <a href="demo.ejs"><button>TRY NOW</button></a>
-  </div>
-    <div class="section" id="section-3">
-        <h2>About Us</h2>
-        <p>Curious about who we are? Visit our About Us page for more information!</p>
-        <a href="aboutUs.ejs"><button>LEARN MORE</button></a>
-    </div>
-      
-  
-</section>
 
-  <script src="../js/home.js"></script>
-  <script src="../js/common.js"></script>
 
-</body>
+    <video width="100%" height="auto" autoplay loop muted webkit-playesinline>
+      <source src="../../media/Homepage_Video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
+
+    <section class="section-container">
+      <div class="section" id="section-1">
+          <h2>Food Recognition</h2>
+          <p>Cut waste, track eats! Try our AI food recognition software</p>
+          <a href="foodRecognition.ejs"><button>TRY IT OUT</button></a>
+      </div>
+      <div class="section" id="section-2">
+          <h2>Contact Us</h2>
+          <p>We welcome you to contact us with any questions.</p>
+          <a href="contact.ejs"><button>CONTACT US</button></a>
+      </div>
+      <div class="section" id="demo">
+        <h2>Check out our demo!</h2>
+        <p>Try our food recognition software in action.</p>
+        <a href="demo.ejs"><button>TRY NOW</button></a>
+      </div>
+      <div class="section" id="section-3">
+          <h2>About Us</h2>
+          <p>Curious about who we are? Visit our About Us page for more information!</p>
+          <a href="aboutUs.ejs"><button>LEARN MORE</button></a>
+      </div>
+        
+    
+    </section>
+
+    <script src="../js/common.js"></script>
+  </body>
 </html>
