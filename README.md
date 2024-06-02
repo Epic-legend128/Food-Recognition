@@ -6,6 +6,7 @@ A website that recognises wasted food on your food tray through your camera.
 2. [Tools Used](#tools-used)
 3. [Prerequisites](#prerequisites)
    - [Setting up Environment Variables](#setting-up-environment-variables)
+   - [Downloading Node Packages](#downloading-node-packages)
 4. [Opening the page](#opening-the-page)
 
 ## Purpose
@@ -29,10 +30,11 @@ From Node we utilised the following packages:
 - firebase
 - path
 - url
+- onnxruntime-node
 
 
 ## Prerequisites
-To be able to open the page to properly use it, you first need to set up all of the environment variables. Normally you would also need to download all of the node packages using npm but they are already included.
+To be able to open the page to properly use it, you first need to set up all of the environment variables. You also need to download all of the node packages using npm.
 
 ### Setting up Environment Variables
 The environment variables are needed to secure certain data. Go to the directory scripts/backend and create a .env file. There you need to save the following variables:
@@ -49,6 +51,12 @@ TOTAL_WASTE=
 CASE_FOOD=
 ```
 All of the variables are there just to connect to the database apart from the first one. The first can be set to anything you like. The default is 3000. Then the rest are just the environment variables that are needed for the configuration of the database. The last 2 are just 2 different document IDs from a collection called "Food" from the database.
+
+### Downloading Node Packages
+To download all of the necessary packages run the following command in the terminal while in the scripts/backend directory:
+```bash
+$ npm install dotenv ejs express firebase onnxruntime-node path url
+```
 
 ## Opening the page
 To open the webpage you need to run the server.js file using node and then visit localhost at port 3000. First, open the folder scripts/backend with the terminal by writing `cd scripts/backend`. Then all you need to do is write in the terminal `node server.js`. In the end, you'll have something like this:
