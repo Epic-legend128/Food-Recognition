@@ -8,6 +8,7 @@ A website that recognises wasted food on your food tray through your camera.
    - [Setting up Environment Variables](#setting-up-environment-variables)
    - [Downloading Node Packages](#downloading-node-packages)
 4. [Opening the page](#opening-the-page)
+5. [Problems](#problems)
 
 ## Purpose
 The purpose of this website is to track the amount of food wasted at the canteen of a place. In our case, it is the school canteen that we want to track the food waste of. The way this works is simple. First, you navigate to the "Food Recognition" page of the site, then click the "open camera" button and then analyze the image shown. The page will refresh and it will show you the foods you wasted from the tray. Meanwhile, this data is sent to a database in Firebase Firestore which stores all of the data in different categories so that they can be analysed better. The dataset for training the model was collected by our team and then trained using Pytorch.
@@ -65,3 +66,6 @@ $ cd scripts/backend
 $ node server.js
 ```
 You can also use nodemon to run the page if you are planning on tinkering with the code.
+
+## Problems
+The final product is actually pretty nice, apart from the model used. The model which we used was trained on our own data, and it was therefore difficult to collect enough, reliable and good quality data for our purposes so we had to limit ourselves to only green apples, bread and pasta with tomato sauce. The model does not work with anything else, and its accuracy with just these few things is actually not very good. Initially, we were thinking of using a pre-trained model, but we also wanted the quantity of food which a pre-trained model would not provide us with, so we were forced to train our own model on different amounts of bread, pasta with tomato sauce and green apples.
