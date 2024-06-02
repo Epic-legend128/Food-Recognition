@@ -1,8 +1,6 @@
 $("#analyze-btn").hide();
 $("#canvas").hide();
 $("#cameraVid").hide();
-let $img = $("#image");
-$img.hide();
 let canvas = $('#canvas')[0];
 
 let videoStream;
@@ -50,7 +48,6 @@ function takePic() {
     let ctx = canvas.getContext('2d');
     ctx.drawImage($video[0], 0, 0, canvas.width, canvas.height);
 
-    $img.show();
     analyze(ctx.getImageData(0, 0, canvas.width, canvas.height));
 }
 
