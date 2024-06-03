@@ -2,7 +2,6 @@ body {
     background-repeat: none;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(35deg, darkred, red) !important;
 }
 
 h1 {
