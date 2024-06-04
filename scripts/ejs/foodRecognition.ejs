@@ -67,9 +67,16 @@
   <% if (hasData) { %>
     <script>
       let d = JSON.parse('<%= JSON.stringify(imageClassData) %>'.replace(/&#34;/g,'"'));
+      var z = 0;
+      var z_classname;
       d.forEach(x => {
-        if (x.probability > 0.6) $("<span>"+x.className.replace('_', '<i style="visibility: hidden;">_</i>')+"</span><br>").appendTo($("#results"));
+        if (x.probability > 0.6 && x.probability > z){
+          z = x.probability;
+          z_classname = x.className;
+        }
       });
+
+      $("<span>"+z_classname.replace('_', '<i style="visibility: hidden;">_</i>')+"</span><br>").appendTo($("#results"))
     </script>
   <% } %>
 </body>

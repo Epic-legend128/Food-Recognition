@@ -79,8 +79,6 @@ app.post("/image", async (req, res) => {
             let jsonObject = JSON.parse(jsonPart.replace(/'/g, '"'));
             let arrayObject = JSON.parse(arrayPart);
 
-            console.log("JSON Object:", jsonObject);
-            console.log("Array:", arrayObject);
             var d2 = jsonObject;
             let dataWithClassNames = [];
             Object.keys(d2).forEach(x => {
@@ -117,7 +115,8 @@ app.post("/image", async (req, res) => {
             await updateDoc(docRef, newData);
             res.render("ejs/foodRecognition.ejs", {
                 hasData: true,
-                imageClassData: dataWithClassNames
+                imageClassData: dataWithClassNames,
+                bb : arrayObject
             });
             if (error !== null) {
                 console.log(`exec error: ${error}`);
