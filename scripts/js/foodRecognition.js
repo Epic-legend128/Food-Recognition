@@ -52,7 +52,13 @@ function takePic() {
 }
 
 async function analyze(canvasData) {
-    $("#img-data").val(JSON.stringify(canvasData.data));
+    let data = canvasData.data;
+    let newData = [];
+    for (let i = 0; i<data.length; i++) {
+        if ((i+1)%4 != 0) newData.push(canvasData[i]);
+    }
+    
+    $("#img-data").val(JSON.stringify(newData));
     $("#form")[0].requestSubmit();
 }
 
