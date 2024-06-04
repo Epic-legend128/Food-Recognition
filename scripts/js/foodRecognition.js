@@ -48,14 +48,21 @@ function takePic() {
     let ctx = canvas.getContext('2d');
     ctx.drawImage($video[0], 0, 0, canvas.width, canvas.height);
 
-    analyze(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    const data = canvas.toDataURL();
+ 
+    console.log(data);
+
+    $("#img-data").val(data);
+    $("#form")[0].requestSubmit();
+
+    //analyze(ctx.getImageData(0, 0, canvas.width, canvas.height));
 }
 
 async function analyze(canvasData) {
     let data = canvasData.data;
     let newData = [];
     for (let i = 0; i<data.length; i++) {
-        if ((i+1)%4 != 0) newData.push(canvasData[i]);
+        if ((i+1)%4 != 0) newData.push(data[i]);
     }
     
     $("#img-data").val(JSON.stringify(newData));

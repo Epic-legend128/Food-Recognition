@@ -3,6 +3,7 @@ import * as path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import "dotenv/config.js";
+import fs from "fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -41,8 +42,6 @@ app.get("/*", async (req, res) => {
 
 app.listen(PORT, _ => console.log("Listening on port: " + PORT));
 
-
-import ort from 'onnxruntime-node';
 import { initializeApp } from "firebase/app";
 import { getFirestore, updateDoc, getDoc, doc } from "firebase/firestore/lite";
 
@@ -61,36 +60,20 @@ const db = getFirestore(dbApp);
 const COLLECTION_NAME = "Food";
 
 let session;
-ort.InferenceSession.create(path.join(__dirname, 'model.onnx')).then((s) => {
-    session = s;
-}).catch((err) => {
-    console.error('Failed to load the ONNX model:', err);
-});
 //const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "Apples_75%", "Pasta_100%", "Pasta_25%", "Pasta_50%", "Pasta_75%", "bread 100%", "bread 25%", "bread 50%", "bread 75%", "bread 85%"];
 const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "Apples_75%", "Pasta_100%", "Pasta_25%", "Pasta_50%", "Pasta_75%", "bread_100%", "bread_25%", "bread_50%", "bread_75%", "bread_85%"];
 
-function softmax(arr) {
-    const max = Math.max(...arr);
-    const exps = arr.map(x => Math.exp(x - max));
-    const sumExps = exps.reduce((a, b) => a + b, 0);
-    return exps.map(x => Math.round((x / sumExps)*1000)/1000);
-}
 
 app.post("/image", async (req, res) => {
-    let data2 = JSON.parse(req.body.img_data);
-    let data = [];
-    Object.keys(data2).forEach(x => {
-        data.push(data2[x]);
-    });
+    let data = req.body.img_data;
 
-    data.splice(3*284*423);
-    const tensor = new ort.Tensor('float32', Float32Array.from(data), [1, 3, 284, 423]);
-    const results = await session.run({ [session.inputNames[0]]: tensor });
-    const predictions = softmax(results[session.outputNames[0]].data);
-    let dataWithClassNames = [];
-    for (let i = 0; i<predictions.length; i++) {
-        dataWithClassNames.push({probability: predictions[i], className: classNames[i]});
-    }
+    console.log(data);
+
+    var base64Data = data.replace(/^data:image\/png;base64,/, "");
+
+    fs.writeFile("inp/inp.png", base64Data, 'base64', function(err) {
+        console.log(err);
+    });
 
     let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
     let d = await getDoc(docRef);
