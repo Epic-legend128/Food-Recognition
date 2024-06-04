@@ -81,7 +81,12 @@ app.post("/image", async (req, res) => {
 
             console.log("JSON Object:", jsonObject);
             console.log("Array:", arrayObject);
-            var dataWithClassNames = jsonObject;
+            var d2 = jsonObject;
+            let dataWithClassNames = [];
+            Object.keys(d2).forEach(x => {
+                dataWithClassNames.push({probability: d2[x], className: x});
+            });
+            console.log(dataWithClassNames);
             
             let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
             let d = await getDoc(docRef);
