@@ -82,10 +82,10 @@ app.post("/image", async (req, res) => {
     Object.keys(data2).forEach(x => {
         data.push(data2[x]);
     });
-
-    data.splice(3*284*423);
+    
     const tensor = new ort.Tensor('float32', Float32Array.from(data), [1, 3, 284, 423]);
     const results = await session.run({ [session.inputNames[0]]: tensor });
+    console.log(results)
     const predictions = softmax(results[session.outputNames[0]].data);
     let dataWithClassNames = [];
     for (let i = 0; i<predictions.length; i++) {

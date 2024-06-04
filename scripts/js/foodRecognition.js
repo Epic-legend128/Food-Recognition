@@ -55,7 +55,7 @@ async function analyze(canvasData) {
     let data = canvasData.data;
     let newData = [];
     for (let i = 0; i<data.length; i++) {
-        if ((i+1)%4 != 0) newData.push(canvasData[i]);
+        if ((i+1)%4 != 0) newData.push(data[i]);
     }
     
     $("#img-data").val(JSON.stringify(newData));
