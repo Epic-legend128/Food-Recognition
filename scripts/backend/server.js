@@ -65,6 +65,7 @@ const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "App
 
 
 app.post("/image", async (req, res) => {
+<<<<<<< HEAD
     let data = req.body.img_data;
 
     console.log(data);
@@ -74,6 +75,22 @@ app.post("/image", async (req, res) => {
     fs.writeFile("inp/inp.png", base64Data, 'base64', function(err) {
         console.log(err);
     });
+=======
+    let data2 = JSON.parse(req.body.img_data);
+    let data = [];
+    Object.keys(data2).forEach(x => {
+        data.push(data2[x]);
+    });
+    
+    const tensor = new ort.Tensor('float32', Float32Array.from(data), [1, 3, 284, 423]);
+    const results = await session.run({ [session.inputNames[0]]: tensor });
+    console.log(results)
+    const predictions = softmax(results[session.outputNames[0]].data);
+    let dataWithClassNames = [];
+    for (let i = 0; i<predictions.length; i++) {
+        dataWithClassNames.push({probability: predictions[i], className: classNames[i]});
+    }
+>>>>>>> 4ce8601e8ae3fea5aa64c5d0a0df0df9cc73e0b3
 
     let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
     let d = await getDoc(docRef);
