@@ -39,7 +39,7 @@ class BB_model(nn.Module):
         x = x.view(x.shape[0], -1)
         return self.classifier(x), self.bb(x)
 
-class_dict = {'apple 0%': 0, 'apple 25%': 1, 'apple 50%': 2, 'apple 75%': 3, 'apple 100%': 4, 'bread 25%': 5, 'bread-50%':6, 'bread-75%':7, 'bread-85%':8, 'bread 100%':9, 'bread full':9, 'pasta 25%':10, 'pasta 50%':11, 'pasta 75%':12, 'pasta 100%':13}
+class_dict = {'Apple 0%': 0, 'Apple 25%': 1, 'Apple 50%': 2, 'Apple 75%': 3, 'Apple 100%': 4, 'Bread 25%': 5, 'Bread 50%':6, 'Bread 75%':7, 'Bread 85%':8, 'Bread 100%':9, 'Pasta 25%':10, 'Pasta 50%':11, 'Pasta 75%':12, 'Pasta 100%':13}
 
 model = BB_model()
 model.load_state_dict(torch.load('./model.pth'))
@@ -78,12 +78,17 @@ def predict(path):
     model.eval()
 
     out_class, out_bb = model(xx)
-    out_class = torch.max(out_class, 1).indices.int()
+
+    out_class = out_class.detach().cpu().numpy() 
+
+    json_string = {}
+
+    for j,i in enumerate(out_class[0]):
+        json_string.update({list(class_dict.items())[j][0]: i})
 
     out_bb = out_bb.detach().cpu().numpy()
     out_bb = out_bb.astype(int)
 
-    return out_class, out_bb
-
+    return json_string, out_bb
 
 print(predict("inp/inp.png"))

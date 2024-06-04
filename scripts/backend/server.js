@@ -4,6 +4,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import "dotenv/config.js";
 import fs from "fs";
+import {exec} from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -60,49 +61,61 @@ const db = getFirestore(dbApp);
 const COLLECTION_NAME = "Food";
 
 let session;
-//const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "Apples_75%", "Pasta_100%", "Pasta_25%", "Pasta_50%", "Pasta_75%", "bread 100%", "bread 25%", "bread 50%", "bread 75%", "bread 85%"];
-const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "Apples_75%", "Pasta_100%", "Pasta_25%", "Pasta_50%", "Pasta_75%", "bread_100%", "bread_25%", "bread_50%", "bread_75%", "bread_85%"];
-
+const classNames = ["Apples_0%", "Apples_100%", "Apples_25%", "Apples_50%", "Apples_75%", "Pasta_100%", "Pasta_25%", "Pasta_50%", "Pasta_75%", "bread 100%", "bread 25%", "bread 50%", "bread 75%", "bread 85%"];
 
 app.post("/image", async (req, res) => {
     let data = req.body.img_data;
 
-    console.log(data);
-
     var base64Data = data.replace(/^data:image\/png;base64,/, "");
 
     fs.writeFile("inp/inp.png", base64Data, 'base64', function(err) {
-        console.log(err);
     });
 
-    let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
-    let d = await getDoc(docRef);
-    d = d.data();
-    let adjustedData = [];
-    dataWithClassNames.forEach(pair => {
-        let key = pair.className;
-        if (pair.probability > 0.6) {
-            let num = key.match("_.*")[0].substring(1);
-            let actualKey = key.match("^.*_")[0];
-            actualKey = actualKey.substring(0, actualKey.length - 1);
-            if (d.hasOwnProperty(actualKey)) d[actualKey] += parseInt(num);
-            else d[actualKey] = parseInt(num);
+    await exec('sh run.sh',
+        async (error, stdout, stderr) => {
+            let jsonPart = stdout.match(/\{[^}]+\}/)[0];
+            let arrayPart = stdout.match(/\[\[[^\]]+\]\]/)[0];
 
-            adjustedData.push(key);
-        }
-    });
-    await updateDoc(docRef, d);
+            let jsonObject = JSON.parse(jsonPart.replace(/'/g, '"'));
+            let arrayObject = JSON.parse(arrayPart);
 
-    docRef = await doc(db, COLLECTION_NAME, process.env.CASE_FOOD);
-    d = await getDoc(docRef);
-    d = d.data();
-    let len = Object.keys(d).length;
-    let newData = {
-        [((len+1).toString())]: adjustedData
-    };
-    await updateDoc(docRef, newData);
-    res.render("ejs/foodRecognition.ejs", {
-        hasData: true,
-        imageClassData: dataWithClassNames
+            console.log("JSON Object:", jsonObject);
+            console.log("Array:", arrayObject);
+            var dataWithClassNames = jsonObject;
+            
+            let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
+            let d = await getDoc(docRef);
+            d = d.data();
+            let adjustedData = [];
+            dataWithClassNames.forEach(pair => {
+                let key = pair.className;
+                if (pair.probability > 0.6) {
+                    let num = key.match(" .*")[0].substring(1);
+                    let actualKey = key.match("^.* ")[0];
+                    actualKey = actualKey.substring(0, actualKey.length - 1);
+                    if (d.hasOwnProperty(actualKey)) d[actualKey] += parseInt(num);
+                    else d[actualKey] = parseInt(num);
+
+                    adjustedData.push(key);
+                }
+            });
+            console.log(dataWithClassNames);
+            await updateDoc(docRef, d);
+
+            docRef = await doc(db, COLLECTION_NAME, process.env.CASE_FOOD);
+            d = await getDoc(docRef);
+            d = d.data();
+            let len = Object.keys(d).length;
+            let newData = {
+                [((len+1).toString())]: adjustedData
+            };
+            await updateDoc(docRef, newData);
+            res.render("ejs/foodRecognition.ejs", {
+                hasData: true,
+                imageClassData: dataWithClassNames
+            });
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+            }
     });
 });
