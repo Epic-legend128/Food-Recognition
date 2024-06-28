@@ -53,6 +53,7 @@
           <input type="hidden" id="img-data" name="img_data">
         </form>
         <canvas id="canvas" class="same-sizes"></canvas>
+        <img style="visibility: hidden" src="" id="helper">
       </div>
 
       <section>
@@ -66,6 +67,7 @@
   <% if (hasData) { %>
     <script>
       let d = JSON.parse('<%= JSON.stringify(imageClassData) %>'.replace(/&#34;/g,'"'));
+      let bb = JSON.parse('<%= JSON.stringify(bb) %>'.replace(/&#34;/g,'"'))[0];
       var z = 0;
       var z_classname;
       d.forEach(x => {
@@ -74,8 +76,19 @@
           z_classname = x.className;
         }
       });
-
-      $("<span>"+z_classname.replace('_', '<i style="visibility: hidden;">_</i>')+"</span><br>").appendTo($("#results"))
+      $("<span>"+z_classname.replace('_', '<i style="visibility: hidden;">_</i>')+"</span><br>").appendTo($("#results"));
+      $("#helper").attr('src', "data:image/png;base64,"+JSON.parse(window.localStorage[KEY]));
+      document.querySelector("#helper").onload = function() {
+        canvas.width = 423;
+        canvas.height = 284;
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage($("#helper")[0], 0, 0);
+        ctx.beginPath();
+        ctx.rect(bb[1], bb[0], bb[3]-bb[1], bb[2]-bb[0]);
+        ctx.stroke();
+        $("#canvas").show();
+        $("#canvas").css("display", "block");
+      }
     </script>
   <% } %>
 </body>

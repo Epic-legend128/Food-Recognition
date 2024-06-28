@@ -84,7 +84,6 @@ app.post("/image", async (req, res) => {
             Object.keys(d2).forEach(x => {
                 dataWithClassNames.push({probability: d2[x], className: x});
             });
-            console.log(dataWithClassNames);
             
             let docRef = await doc(db, COLLECTION_NAME, process.env.TOTAL_WASTE);
             let d = await getDoc(docRef);
@@ -102,7 +101,6 @@ app.post("/image", async (req, res) => {
                     adjustedData.push(key);
                 }
             });
-            console.log(dataWithClassNames);
             await updateDoc(docRef, d);
 
             docRef = await doc(db, COLLECTION_NAME, process.env.CASE_FOOD);
