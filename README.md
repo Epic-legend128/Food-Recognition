@@ -7,6 +7,7 @@ A website that recognises wasted food on your food tray through your camera.
 3. [Prerequisites](#prerequisites)
    - [Setting up Environment Variables](#setting-up-environment-variables)
    - [Downloading Node Packages](#downloading-node-packages)
+   - [Downloading Python Packages](#downloading-python-packages)
 4. [Opening the page](#opening-the-page)
 5. [Problems](#problems)
 
@@ -22,6 +23,7 @@ For the webpage, we made use of:
 - CSS
 - jQuery
 - HTML(Started off with HTML and then switched to EJS)
+- Python
 
 For the training of the model we used Python and more specifically Pytorch. The dataset of images was collected by our team and they were annotated using [labelImg](https://github.com/HumanSignal/labelImg#). <br>
 From Node we utilised the following packages:
@@ -31,8 +33,6 @@ From Node we utilised the following packages:
 - firebase
 - path
 - url
-- onnxruntime-node
-
 
 ## Prerequisites
 To be able to open the page to properly use it, you first need to set up all of the environment variables. You also need to download all of the node packages using npm.
@@ -54,10 +54,17 @@ CASE_FOOD=
 All of the variables are there just to connect to the database apart from the first one. The first can be set to anything you like. The default is 3000. Then the rest are just the environment variables that are needed for the configuration of the database. The last 2 are just 2 different document IDs from a collection called "Food" from the database.
 
 ### Downloading Node Packages
-To download all of the necessary packages run the following command in the terminal while in the scripts/backend directory:
+To download all of the necessary packages run the following command in the terminal while in the <strong>scripts/backend</strong> directory:
 ```bash
-$ npm install dotenv ejs express firebase onnxruntime-node path url
+$ npm install dotenv ejs express firebase path url
 ```
+
+### Downloading Python Packages
+You will also need to download a couple of python packages because python is also used for the usage of the model. We run python to get the results from the image and then send those results back to the node. Go to the <strong>scripts/backend</strong> directory and use the following command:
+```bash
+$ pip3 install opencv-python matplotlib
+```
+
 
 ## Opening the page
 To open the webpage you need to run the server.js file using node and then visit localhost at port 3000. First, open the folder scripts/backend with the terminal by writing `cd scripts/backend`. Then all you need to do is write in the terminal `node server.js`. In the end, you'll have something like this:
