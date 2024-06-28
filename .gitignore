@@ -1,3 +1,5 @@
 **/.DS_Store
 *.env
 **scripts/backend/node_modules
+**scripts/backend/inp/
+scripts/backend/inp/inp.png
