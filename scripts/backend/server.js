@@ -73,8 +73,8 @@ app.post("/image", async (req, res) => {
 
     await exec('sh run.sh',
         async (error, stdout, stderr) => {
-            let jsonPart = stdout.match(/\{[^}]+\}/)[0];
-            let arrayPart = stdout.match(/\[\[[^\]]+\]\]/)[0];
+            let jsonPart = (stdout.match(/\{[^}]+\}/)||["{}"])[0];
+            let arrayPart = (stdout.match(/\[\[[^\]]+\]\]/)||["{}"])[0];
 
             let jsonObject = JSON.parse(jsonPart.replace(/'/g, '"'));
             let arrayObject = JSON.parse(arrayPart);
